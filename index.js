@@ -33,10 +33,9 @@ hard.addEventListener('click' , function(){
 })
 
 function getNameVsAI(){
-	if(playerName.value == null || playerName.value == " "){
+	if(playerName.value == null || playerName.value == ""){
 		playerName.style.border = "2px solid red";
 		playerName.placeholder = "Enter your name";
-		console.log("hre");
 	}else{
 		localStorage.setItem("player" , playerName.value);
 		playerName.textContent = "";
