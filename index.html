@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>10x10 TICTACTOE</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="title-div">
+		<h4 id="title-txt">10x10 TICTACTOE</h4>
+		<h4 id="title-txt">10x10 TICTACTOE</h4>
+	</div>
+
+	<div class="links">
+		<div class="title-links" id="creator-div">
+			<h4>CREATOR</h4>
+		</div>
+
+		<div class="title-links" id="css-div">
+			<h4>CSS EFFECTS</h4>
+		</div>
+
+		<ul>
+			<li id="facebook-link">
+				<a href="">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span class="fa fa-facebook" aria-hidden="true"></span>
+				</a>
+			</li>
+
+			<li id="youtube-link">
+				<a href="https://www.youtube.com/channel/UCbwXnUipZsLfUckBPsC7Jog">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span class="fa fa-youtube-play" aria-hidden="true"></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<main>
+		<div class="vs-ai-div">
+			<div class="card">
+				<div class="img-box">
+					<img id="robot-img" src="./imgs/robot.png">
+				</div>
+				<div class="content-box">
+					<h2>vs A.I.</h2>
+					<div class="difficulty" id="diff-id">
+						<h3>Difficulty :</h3>
+						<!--<h4 id="easy-txt">Easy</h4>-->
+						<h4 id="hard-txt">Hard</h4>
+					</div>
+					<div class="name">
+						<h3>Name :</h3>
+						<input type="text" id="name-input">
+					</div>
+					<a onclick="getNameVsAI()" id="vsAi-btn">Play</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="vs-players-div">
+			<div class="card">
+				<div class="img-box">
+					<img id="vsHuman-img" src="./imgs/1v1.png">
+				</div>
+				<div class="content-box">
+					<h2>1 v 1</h2>
+					<div class="p1-txt-box">
+						<h3 id="p1-h3">P1 Name :</h3>
+						<input type="text" id="p1-name-input">
+					</div>
+					<div class="p2-txt-box">
+						<h3 id="p2-h3">P2 Name :</h3>
+						<input type="text" id="p2-name-input">
+					</div>
+
+					<a onclick="getName()" id="vs-human-button">Play</a>			
+				</div>
+			</div>
+		</div>
+		<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<path fill="#232323" fill-opacity="1" d="M0,64L26.7,58.7C53.3,53,107,43,160,74.7C213.3,107,267,181,320,186.7C373.3,192,427,128,480,117.3C533.3,107,587,149,640,149.3C693.3,149,747,107,800,106.7C853.3,107,907,149,960,165.3C1013.3,181,1067,171,1120,149.3C1173.3,128,1227,96,1280,80C1333.3,64,1387,64,1413,64L1440,64L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z">
+			</path>
+		</svg>
+		<!--
+		<div class="social-medias">
+			<ul>
+				<li>
+					<a>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<i class="fa fa-facebook" aria-hidden="true"></i>
+					</a>
+				</li>
+
+				<li>
+					<a>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<i class="fa fa-youtube-play" aria-hidden="true"></i>
+					</a>
+				</li>
+
+			</ul>
+		</div>
+	-->
+	</main>
+
+	<label class="side-bar-lbl">
+		<h4 id="update-txt">Next Update</h4>
+	</label>
+	<div class="side-bar">
+		<h4 id="cancel-txt">X</h4>
+		<header>My App</header>
+
+		<div class="update-para">
+			<div id="bullet-1">
+				<p>Add Difficulty: Easy in vs A.I.</p>
+			</div>
+			
+			<div id="bullet-2">
+				<p>Add player's icon in vs A.I and 1v1.</p>
+			</div>
+			
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

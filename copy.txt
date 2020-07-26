@@ -1,0 +1,205 @@
+const cells = document.querySelectorAll('.cells');
+const p1PointsLbl = document.getElementById('p1-points');
+const p2PointsLbl = document.getElementById('p2-points');
+const p1 = 'X';
+const p2 = 'O';
+let turnCounter = 0;
+let origBoard;
+let p1Points = 0;
+let p2Points = 0;
+let p1WinCombosIndex = [];
+let p2WinCombosIndex = [];
+
+//horizontal win combos
+var horizontalWinCombos = [];
+for(var i = 0; i <= 98; ++i){
+	horizontalWinCombos.push([i , (i + 1) , (i + 2)]); 
+}
+
+//vertical win combos
+var verticalWinCombos = [];
+for(var i = 0; i <= 79; ++i){
+	verticalWinCombos.push([i , (i + 10) , (i + 20)]); 
+}
+
+//left slant win combos
+var leftSlantWinCombos = [];
+for(var i = 0; i <= 77; ++i){
+	leftSlantWinCombos.push([i , (i + 11) , (i + 22)]); 
+}
+
+//right slant win combos
+var rightSlantWinCombos = [];
+for(var i = 2; i <= 79; ++i){
+	rightSlantWinCombos.push([i , (i + 9) , (i + 18)]); 
+}
+
+/*
+ startGame 
+ set the board to an array from element  0 - 99
+ clean the text of every cells
+ and add an event listener to every cell
+
+ turnClick(square)
+
+ turn(squareID , player)
+ replace the current value of the origboard which is from 0-99
+ to the player's text
+
+ declare a variable that will hold the return value of the checkWin
+ if gameWon has a value run the gameOver function with a parameter of gameWon
+
+ checkWin(board , player)
+
+ declare a variable that will hold the every cell that the player went to
+ using reduce and concat method
+
+ declare the variable gameWon to null
+
+ iterate in the entries of winCombos then
+ check if the winning patterns are in the value of the elements of the players board
+ then assign to gameWon variable the index of the winCombo and whos the player
+ and return the variable gameWon
+
+ gameOver(gameWon)
+ set the winning patterns of the player to a color background
+ and then remove the event listener to every cells
+*/
+
+startGame();
+
+//board functions
+function startGame(){
+	origBoard = Array.from(Array(99).keys());
+
+	//for replay button when it clicked
+	for(var i = 0; i < cells.length; ++i){
+		cells[i].textContent = "";
+		cells[i].style.removeProperty('background-color');
+		cells[i].addEventListener('click' , turnClick , false);
+	}
+
+	p1PointsLbl.textContent = "SCORE: " + 0;
+	p2PointsLbl.textContent = "SCORE: " + 0;
+}
+
+function turnClick(square){
+	if(turnCounter == 0){
+		turn(square.target.id , p1);
+		//turnCounter = 1;
+	}else{
+		turn(square.target.id , p2);
+		turnCounter = 0;
+	}
+}
+
+function turn(squareID, player){
+	origBoard[squareID] = player;
+	cells[squareID].textContent = player;
+	cells[squareID].removeEventListener('click' , turnClick, false);
+
+	let index = squareID;
+
+	if(squareID >= 1 && cells[parseInt(index) - 1].style.backgroundColor == "blue" && cells[parseInt(index) + 1].style.backgroundColor == "blue"){
+		console.log("here");
+		let inBetween = [parseInt(index) - 1 , parseInt(index) , parseInt(index) + 1];
+
+		let gameWon = checkWin(inBetween , player);
+		if(gameWon) winner(gameWon); 
+	}else{
+		let gameWon = playersTagBoard(origBoard , player);
+		if(gameWon) winner(gameWon);
+	}
+	
+}
+
+function playersTagBoard(board , player){
+	if(player === "X"){
+		let p1Plays = board.reduce((a , e , i) => (e == player && cells[i].style.backgroundColor == "") ? a.concat(i) : a , []);
+		return checkWin(p1Plays , player);
+	}else{
+		let p2Plays = board.reduce((a , e , i) => (e == player) ? a.concat(i) : a , []);
+		return checkWin(p2Plays , player);
+	}
+}
+
+function checkWin(plays , player){
+	let gameWon = null;
+
+	for(let [index , win] of horizontalWinCombos.entries()){
+		if(win.every(elem => plays.indexOf(elem) > -1)){
+			gameWon = {index: index , player: player , winCombos: horizontalWinCombos};
+		}
+	}
+
+	for(let [index , win] of verticalWinCombos.entries()){
+		if(win.every(elem => plays.indexOf(elem) > -1)){
+			gameWon = {index: index , player: player , winCombos: verticalWinCombos};
+		}
+	}
+
+	for(let [index , win] of leftSlantWinCombos.entries()){
+		if(win.every(elem => plays.indexOf(elem) > -1)){
+			gameWon = {index: index , player: player , winCombos: leftSlantWinCombos};
+		}
+	}
+
+	for(let [index , win] of rightSlantWinCombos.entries()){
+		if(win.every(elem => plays.indexOf(elem) > -1)){
+			gameWon = {index: index , player: player , winCombos: rightSlantWinCombos};
+		}
+	}
+
+	return gameWon;
+}
+
+function winner(gameWon){
+	let combos = 0;
+	
+	for( let index of gameWon.winCombos[gameWon.index]){
+		cells[index].removeEventListener('click' , turnClick , false);
+		cells[index].style.backgroundColor = (gameWon.player === "X") ? "blue" : "red"; 
+	}
+
+	(gameWon.player == "X") ? p1WinCombosIndex.push(gameWon.index) : p2WinCombosIndex.push(gameWon.index);
+
+	(gameWon.player == "X") ? combos = colorCombosHorizontal(p1WinCombosIndex) : combos = colorCombosHorizontal(p2WinCombosIndex);
+	
+	scoring(gameWon , combos);
+		
+}
+
+function colorCombosHorizontal(arr){
+	let combos = 0;
+	for(var i = 0; i < arr.length; ++i){
+		for(var j = 0; j < arr.length; ++j){
+			if(arr[i] + 3 == arr[j]){
+				combos++;
+			}
+		}
+	}
+	return combos;	
+}
+
+function colorCombosVertical(arr){
+	
+}
+
+function scoring(gameWon, combos){
+	let points = 100;
+	switch(combos){
+		case 1: points = 300;
+			break;
+		case 2: points = 500;
+			break;
+	}
+
+	if(gameWon.player == "X"){
+		p1Points += points;
+		p1PointsLbl.textContent = "SCORE: " + p1Points;
+	}else{
+		p2Points += points;
+		p2PointsLbl.textContent = "SCORE: " + p2Points;
+	}
+}
+

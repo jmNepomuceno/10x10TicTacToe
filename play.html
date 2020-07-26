@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>10x10 TICTACTOE | vs HUMAN</title>
+	<link rel="stylesheet" type="text/css" href="play.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+<body id="body" onload="mainFunc()">
+
+	<div class="nav-btns">
+		<ul>
+			<li>
+				<a onclick="getBackHome()" style="text-decoration: none;" id="back-home-btn">
+					<label>
+						<div class="icon" ><i class="fa fa-home" aria-hidden="true"></i></div>
+					</label>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<table>
+		<tr>
+			<td class="cells" id="0"></td>
+			<td class="cells" id="1"></td>
+			<td class="cells" id="2"></td>
+			<td class="cells" id="3"></td>
+			<td class="cells" id="4"></td>
+			<td class="cells" id="5"></td>
+			<td class="cells" id="6"></td>
+			<td class="cells" id="7"></td>
+			<td class="cells" id="8"></td>
+			<td class="cells" id="9"></td>
+		</tr>
+
+		<tr>
+			<td class="cells" id="10"></td>
+			<td class="cells" id="11"></td>
+			<td class="cells" id="12"></td>
+			<td class="cells" id="13"></td>
+			<td class="cells" id="14"></td>
+			<td class="cells" id="15"></td>
+			<td class="cells" id="16"></td>
+			<td class="cells" id="17"></td>
+			<td class="cells" id="18"></td>
+			<td class="cells" id="19"></td>
+		</tr>
+
+		<tr>
+			<td class="cells" id="20"></td>
+			<td class="cells" id="21"></td>
+			<td class="cells" id="22"></td>
+			<td class="cells" id="23"></td>
+			<td class="cells" id="24"></td>
+			<td class="cells" id="25"></td>
+			<td class="cells" id="26"></td>
+			<td class="cells" id="27"></td>
+			<td class="cells" id="28"></td>
+			<td class="cells" id="29"></td>
+		</tr>
+
+		<tr>
+			<td class="cells" id="30"></td>
+			<td class="cells" id="31"></td>
+			<td class="cells" id="32"></td>
+			<td class="cells" id="33"></td>
+			<td class="cells" id="34"></td>
+			<td class="cells" id="35"></td>
+			<td class="cells" id="36"></td>
+			<td class="cells" id="37"></td>
+			<td class="cells" id="38"></td>
+			<td class="cells" id="39"></td>
+		</tr>
+
+		<tr>
+			<td class="cells" id="40"></td>
+			<td class="cells" id="41"></td>
+			<td class="cells" id="42"></td>
+			<td class="cells" id="43"></td>
+			<td class="cells" id="44"></td>
+			<td class="cells" id="45"></td>
+			<td class="cells" id="46"></td>
+			<td class="cells" id="47"></td>
+			<td class="cells" id="48"></td>
+			<td class="cells" id="49"></td>
+		</tr>
+
+		<tr>
+			<td class="cells" id="50"></td>
+			<td class="cells" id="51"></td>
+			<td class="cells" id="52"></td>
+			<td class="cells" id="53"></td>
+			<td class="cells" id="54"></td>
+			<td class="cells" id="55"></td>
+			<td class="cells" id="56"></td>
+			<td class="cells" id="57"></td>
+			<td class="cells" id="58"></td>
+			<td class="cells" id="59"></td>
+		</tr>
+
+		<tr>
+			<td class="cells" id="60"></td>
+			<td class="cells" id="61"></td>
+			<td class="cells" id="62"></td>
+			<td class="cells" id="63"></td>
+			<td class="cells" id="64"></td>
+			<td class="cells" id="65"></td>
+			<td class="cells" id="66"></td>
+			<td class="cells" id="67"></td>
+			<td class="cells" id="68"></td>
+			<td class="cells" id="69"></td>
+		</tr>
+
+		<tr>
+			<td class="cells" id="70"></td>
+			<td class="cells" id="71"></td>
+			<td class="cells" id="72"></td>
+			<td class="cells" id="73"></td>
+			<td class="cells" id="74"></td>
+			<td class="cells" id="75"></td>
+			<td class="cells" id="76"></td>
+			<td class="cells" id="77"></td>
+			<td class="cells" id="78"></td>
+			<td class="cells" id="79"></td>
+		</tr>
+
+		<tr>
+			<td class="cells" id="80"></td>
+			<td class="cells" id="81"></td>
+			<td class="cells" id="82"></td>
+			<td class="cells" id="83"></td>
+			<td class="cells" id="84"></td>
+			<td class="cells" id="85"></td>
+			<td class="cells" id="86"></td>
+			<td class="cells" id="87"></td>
+			<td class="cells" id="88"></td>
+			<td class="cells" id="89"></td>
+		</tr>
+
+		<tr>
+			<td class="cells" id="90"></td>
+			<td class="cells" id="91"></td>
+			<td class="cells" id="92"></td>
+			<td class="cells" id="93"></td>
+			<td class="cells" id="94"></td>
+			<td class="cells" id="95"></td>
+			<td class="cells" id="96"></td>
+			<td class="cells" id="97"></td>
+			<td class="cells" id="98"></td>
+			<td class="cells" id="99"></td>
+		</tr>
+	</table>
+
+	<div class="player-icon" id="p1-icon">
+		<img src="./imgs/border.png" id="p1-border-img">
+		<img src="./imgs/question.png" id="p1-img">
+	</div>
+
+	<div class="player-info" id="p1-info">
+		<h4 class="name-text" id="p1-name"></h4>
+
+		<hr class="top-hr">
+
+		<div class="turn-text moving-glow" id="p1-turn-div">
+			<h4 id="p1-turn">YOUR TURN</h4>
+		</div>
+
+		<hr class="bot-hr">
+
+		<h4 class="plus-points-text" id="p1-plus-points">+000</h4>
+	</div>
+
+	<div class="player-icon" id="p2-icon">
+		<img src="./imgs/border.png" id="p2-border-img">
+		<img src="./imgs/question.png" id="p2-img">
+	</div>
+
+	<div class="player-info" id="p2-info">
+
+		<h4 class="name-text" id="p2-name"></h4>
+
+		<hr class="top-hr">
+
+		<div class="turn-text moving-glow" id="p2-turn-div">
+			<h4 id="p2-turn">YOUR TURN</h4>
+		</div>
+
+		<hr class="bot-hr">
+
+		<h4 class="plus-points-text" id="p2-plus-points">+000</h4>
+	</div>
+
+
+	<div class="points-div">
+		<label class="points" id="p1-points">SCORE: </label>
+		<label class="points" id="p2-points">SCORE: </label>
+	</div>
+
+	<div class="p1-fire">
+		<img id="p1-fire-right" src="./imgs/fire.gif">
+		<img id="p1-fire-bottom" src="./imgs/fire.gif">
+		<img id="p1-fire-left" src="./imgs/fire.gif">
+	</div>
+
+	<div class="p2-fire">
+		<img id="p2-fire-right" src="./imgs/fire.gif">
+		<img id="p2-fire-bottom" src="./imgs/fire.gif">
+		<img id="p2-fire-left" src="./imgs/fire.gif">
+	</div>
+
+	<div class="break-div" id="break-div-id">
+		<h4 id="break-txt">5</h4>
+	</div>
+	
+<script type="text/javascript" src="play.js" ></script>
+</body>
+</html>

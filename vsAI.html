@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>10x10 TICTACTOE | vs A.I.</title>
+	<link rel="stylesheet" type="text/css" href="vsAI.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body onload="mainFunc()">
+
+	<div class="nav-btns">
+		<ul>
+			<li>
+				<a onclick="getBackHome()" style="text-decoration: none;" id="back-home-btn">
+					<label id="home-btn">
+						<div class="icon" ><i class="fa fa-home" aria-hidden="true"></i></div>
+					</label>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="tutorial">
+
+		<div class="gameplay">
+			<div class="slides" id="slide-1">
+
+				<div class="marquee">
+					<h4 id="xo">
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+					</h4>
+				</div>
+
+				<div class="marquee">
+					<h4 id="xo1">
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+						<span id="span-x">X </span><span id="span-O">O </span>
+					</h4>
+				</div>
+
+				<h4 id="title"><span>U</span>LTIMATE TIC <span>TAC</span> TOE <br>VS A.I.</h4>
+			</div>
+
+			<div class="slides" id="slide-2">
+				<h4 id="how-to-play-2">HOW TO PLAY</h4>
+				<img src="./imgs/think.png" id="bulb-img-L">
+				<img src="./imgs/think.png" id="bulb-img-R">
+
+				<div class="card-1">
+					<div class="face front" id="face-1">
+
+						<div class="rule-1">
+							<h4 class="rule-1-txt" style="">1</h4>
+						</div>
+
+						<h4 class="rule-1-para"><span> In Ultimate </span> Tic Tac Toe, you will be playing on 9 different Tic Tac Toe boards at the same time.</h4>
+
+					</div>
+
+					<div class="face back">
+
+						<img src="./imgs/play.png" id="play-img-1">
+
+						<table class="table-tutor" id="table-0-tutor">
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor" id="table-1-tutor">
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor" id="table-2-tutor">
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor" id="table-3-tutor">
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor" id="table-4-tutor">
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor" id="table-5-tutor">
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor" id="table-6-tutor">
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor" id="table-7-tutor">
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor" id="table-8-tutor">
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+								<td class="cell-tutor-1"></td>
+							</tr>
+						</table>
+
+						<hr id="hr-0-tutor-1">
+						<hr id="hr-1-tutor-1">
+						<hr id="hr-2-tutor-1">
+						<hr id="hr-3-tutor-1">
+
+					</div>
+				</div>
+
+				<div class="card-2">
+					<div class="face front" id="face-2">
+
+						<div class="rule-2">
+							<h4 class="rule-2-txt">2</h4>
+						</div>
+
+						<h4 class="rule-2-para"><span> You need to </span> at least win on three (3) different board, to win the whole game itself.</h4>
+
+					</div>
+
+					<div class="face back">
+
+						<img src="./imgs/play.png" id="play-img-2">
+
+						<table class="table-tutor-2" id="table-0-tutor-2">
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor-2" id="table-1-tutor-2">
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor-2" id="table-2-tutor-2">
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor-2" id="table-3-tutor-2">
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor-2" id="table-4-tutor-2">
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor-2" id="table-5-tutor-2">
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor-2" id="table-6-tutor-2">
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor-2" id="table-7-tutor-2">
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+						</table>
+
+						<table class="table-tutor-2" id="table-8-tutor-2">
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+
+							<tr>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+								<td class="cell-tutor-2"></td>
+							</tr>
+						</table>
+
+						<hr id="hr-0-tutor-2">
+						<hr id="hr-1-tutor-2">
+						<hr id="hr-2-tutor-2">
+						<hr id="hr-3-tutor-2">
+
+						<div class="big-table-tutor-2" id="big-table-tutor-2-1">
+							<h4>X</h4>	
+						</div>
+
+						<div class="big-table-tutor-2" id="big-table-tutor-2-2">
+							<h4>X</h4>	
+						</div>
+
+						<div class="big-table-tutor-2" id="big-table-tutor-2-3">
+							<h4>X</h4>	
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="slides" id="slide-3">
+				<h4 id="how-to-play-2">HOW TO PLAY</h4>
+				<img src="./imgs/think.png" id="bulb-img-L">
+				<img src="./imgs/think.png" id="bulb-img-R">
+
+				<div class="card-3">
+					<div class="face front" id="face-3">
+
+						<div class="rule-3">
+							<h4 class="rule-3-txt" style="">3</h4>
+						</div>
+
+						<h4 class="rule-3-para"><span> You will be </span> only given 2 seconds in your turn. Make sure to always pay attention to your timer or else the A.I. will take turn instead.</h4>
+
+					</div>
+
+					<div class="face back">
+						<img src="./imgs/play.png" id="play-img-3">
+						<h3 class="timer-tutor-3" style="color:#f66051;">0:02</h3>
+
+						<div class="ai-tutor-turn">
+							<span style="--i:1">A</span>
+							<span style="--i:2">I</span>
+							<span style="--i:3">'</span>
+							<span style="--i:4">s</span>
+							<span style="--i:5">T</span>
+							<span style="--i:6">U</span>
+							<span style="--i:7">R</span>
+							<span style="--i:8">N</span>
+							<span style="--i:13">.</span>
+							<span style="--i:14">.</span>
+							<span style="--i:15">.</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="card-4">
+					<div class="face front" id="face-4">
+
+						<div class="rule-4">
+							<h4 class="rule-4-txt" style="">4</h4>
+						</div>
+
+						<h4 class="rule-4-para"><span> It seems like </span> you are ready to play now!
+						The timer will automatically start as soon as you enter the game!</h4>
+
+					</div>
+
+					<div class="face back">
+					</div>
+				</div>
+
+			</div>
+
+			<div class="slides" id="slide-4">
+				<h4 id="note-txt">***NOTE***</h4>
+
+				<div class="slide-4-para">
+					<div class="bullet"></div>
+					<p id="para-4">Welcome to Ultimate Tic Tac Toe: vs A.I. Hope you'll enjoy playing against A.I. If you don't think it's playable or there are some bugs that occurred, just let me know. (Probably the game will lag because it's had been uploaded online).</p>
+					
+
+					<a class="play-btn">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						PLAY
+					</a>
+
+				</div>
+			</div>
+			
+			<div class="circle-div">
+				<div class="circles"></div>
+				<div class="circles"></div>
+				<div class="circles"></div>
+				<div class="circles"></div>
+			</div>
+		</div>
+
+		<a id="got-it-btn">
+			<span>GOT IT</span>
+			<div class="liquid">
+				
+			</div>
+		</a>
+	</div>
+
+	<!-------------------------------------------->
+
+	<table class="table-0">
+		<tr>
+			<td class="cell" id="0"></td>
+			<td class="cell" id="1"></td>
+			<td class="cell" id="2"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="3"></td>
+			<td class="cell" id="4"></td>
+			<td class="cell" id="5"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="6"></td>
+			<td class="cell" id="7"></td>
+			<td class="cell" id="8"></td>
+		</tr>
+	</table>
+
+	<table class="table-1">
+		<tr>
+			<td class="cell" id="9"></td>
+			<td class="cell" id="10"></td>
+			<td class="cell" id="11"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="12"></td>
+			<td class="cell" id="13"></td>
+			<td class="cell" id="14"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="15"></td>
+			<td class="cell" id="16"></td>
+			<td class="cell" id="17"></td>
+		</tr>
+	</table>
+
+	<table class="table-2">
+		<tr>
+			<td class="cell" id="18"></td>
+			<td class="cell" id="19"></td>
+			<td class="cell" id="20"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="21"></td>
+			<td class="cell" id="22"></td>
+			<td class="cell" id="23"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="24"></td>
+			<td class="cell" id="25"></td>
+			<td class="cell" id="26"></td>
+		</tr>
+	</table>
+
+	<table class="table-3">
+		<tr>
+			<td class="cell" id="27"></td>
+			<td class="cell" id="28"></td>
+			<td class="cell" id="29"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="30"></td>
+			<td class="cell" id="31"></td>
+			<td class="cell" id="32"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="33"></td>
+			<td class="cell" id="34"></td>
+			<td class="cell" id="35"></td>
+		</tr>
+	</table>
+
+	<table class="table-4">
+		<tr>
+			<td class="cell" id="36"></td>
+			<td class="cell" id="37"></td>
+			<td class="cell" id="38"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="39"></td>
+			<td class="cell" id="40"></td>
+			<td class="cell" id="41"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="42"></td>
+			<td class="cell" id="43"></td>
+			<td class="cell" id="44"></td>
+		</tr>
+	</table>
+
+	<table class="table-5">
+		<tr>
+			<td class="cell" id="45"></td>
+			<td class="cell" id="46"></td>
+			<td class="cell" id="47"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="48"></td>
+			<td class="cell" id="49"></td>
+			<td class="cell" id="50"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="51"></td>
+			<td class="cell" id="52"></td>
+			<td class="cell" id="53"></td>
+		</tr>
+	</table>
+
+	<table class="table-6">
+		<tr>
+			<td class="cell" id="54"></td>
+			<td class="cell" id="55"></td>
+			<td class="cell" id="56"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="57"></td>
+			<td class="cell" id="58"></td>
+			<td class="cell" id="59"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="60"></td>
+			<td class="cell" id="61"></td>
+			<td class="cell" id="62"></td>
+		</tr>
+	</table>
+
+	<table class="table-7">
+		<tr>
+			<td class="cell" id="63"></td>
+			<td class="cell" id="64"></td>
+			<td class="cell" id="65"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="66"></td>
+			<td class="cell" id="67"></td>
+			<td class="cell" id="68"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="69"></td>
+			<td class="cell" id="70"></td>
+			<td class="cell" id="71"></td>
+		</tr>
+	</table>
+
+	<table class="table-8">
+		<tr>
+			<td class="cell" id="72"></td>
+			<td class="cell" id="73"></td>
+			<td class="cell" id="74"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="75"></td>
+			<td class="cell" id="76"></td>
+			<td class="cell" id="77"></td>
+		</tr>
+
+		<tr>
+			<td class="cell" id="78"></td>
+			<td class="cell" id="79"></td>
+			<td class="cell" id="80"></td>
+		</tr>
+	</table>
+
+	<hr id="hr-0">
+	<hr id="hr-1">
+	<hr id="hr-2">
+	<hr id="hr-3">
+
+	<div class="player-icon" id="p1-icon">
+		<img src="./imgs/border.png" id="p1-border-img">
+		<img src="./imgs/question.png" id="p1-img">
+	</div>
+
+	<div class="player-info" id="p1-info">
+		<h4 class="name-text" id="p1-name"></h4>
+
+		<hr class="top-hr">
+
+		<div class="turn-text moving-glow" id="p1-turn-div">
+			<h4 id="p1-turn">YOUR TURN</h4>
+		</div>
+
+		<hr class="bot-hr">
+
+		<div class="timer-turn">
+			<h4 id="p1-timer-turn">0:02</h4>
+		</div>
+	</div>
+
+	<div class="player-icon" id="ai-icon">
+		<img src="./imgs/border.png" id="ai-border-img">
+		<img src="./imgs/ai.jpeg" id="ai-img">
+	</div>
+
+	<div class="player-info" id="ai-info">
+
+		<h4 class="name-text" id="ai-name">A.I.</h4>
+
+		<hr class="top-hr">
+
+		<div class="turn-text moving-glow" id="ai-turn-div">
+			<h4 id="ai-turn">AI's TURN</h4>
+		</div>
+
+		<hr class="bot-hr">
+
+		<div class="ai-think-div">
+			<span style="--i:1">A</span>
+			<span style="--i:2">I</span>
+			<span style="--i:3">'</span>
+			<span style="--i:4">s</span>
+			<span style="--i:5">T</span>
+			<span style="--i:6">H</span>
+			<span style="--i:7">I</span>
+			<span style="--i:8">N</span>
+			<span style="--i:9">K</span>
+			<span style="--i:10">I</span>
+			<span style="--i:11">N</span>
+			<span style="--i:12">G</span>
+			<span style="--i:13">.</span>
+			<span style="--i:14">.</span>
+			<span style="--i:15">.</span>
+		</div>
+	</div>
+
+	<div class="break-div" id="break-div-id">
+		<h4 id="break-txt">5</h4>
+	</div>
+
+	<div class="big-table">
+		<h4 class="text-animation">X</h4>
+	</div>
+
+	<div class="win-div">
+		<img src="./imgs/trophy.png" class="trophy-img" id="trophy-1">
+		<h4>A.I. WINS!</h4>
+		<img src="./imgs/trophy.png" class="trophy-img" id="trophy-2">
+
+		<div class="play-again-div">
+				<button id="play-again-btn">PLAY AGAIN</button>
+		</div>
+
+		<div class="exit-div">
+			<form action="index.html">
+				<button id="exit-btn">EXIT</button>
+			</form>
+		</div>
+
+	</div>
+<script type="text/javascript" src="vsAI.js" ></script>
+</body>
+</html>
